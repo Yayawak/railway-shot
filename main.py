@@ -28,7 +28,7 @@ def oneShotRun():
 
 
 def getDuoRates():
-    apikey = "13b845c9334cb342dd7345645008a0c2"
+    apikey = "5eb204d7058c3be3c83004da152b2470"
     # url = "http://api.exchangeratesapi.io/v1/latest?access_key={}&base=THB&symbols=JPY".format(apikey)
     url = "http://api.exchangeratesapi.io/v1/latest?access_key={}&symbols=JPY,THB".format(apikey)
 
@@ -56,6 +56,7 @@ if __name__ == '__main__':
     # sheet = ezsheets.Spreadsheet('1j9R0dvNIIVQyBBMHjEySVySrEwy7wxsH6LrgDz0Zfe0')
     # print("Title of This Sheet is = ", sheet.title)
 
+
     sheet = ezsheets.Spreadsheet('1AZhNQ49Arn2c8qGnkqDAF8iW4eDEBNMQ2LnIZjh6028')
     # AIzaSyA6FoMiyRV5HbwV-RbgZ272xYSxZ5lzkOc
     # print(sheet)
@@ -65,7 +66,8 @@ if __name__ == '__main__':
 
     oneShotRun()
 
-    schedule.every(1).minutes.do(oneShotRun)
+    # schedule.every(1).minutes.do(oneShotRun)
+    schedule.every(1).hour.do(oneShotRun)
     # schedule.every(1).seconds.do(oneShotRun)
     while True:
         schedule.run_pending()
